@@ -18,4 +18,9 @@ public class CircularListImplTest {
     void sizeIsInitiallyZero() {
         assertEquals(0, circularList.size());
     }
+
+    @Test
+    void isEmptyIsCorrect() {
+        assertEquals(true, circularList.isEmpty());
+    }
 }
