@@ -1,5 +1,7 @@
 import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.Optional;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -40,6 +42,11 @@ public class CircularListImplTest {
     }
 
     @Test
+    void nextReturnsEmptyWhenListIsEmpty() {
+        assertTrue(circularList.next().isEmpty());
+    }
+
+    @Test
     void nextReturnsCorrectItem() {
         circularList.add(0);
         var next = circularList.next();
@@ -49,7 +56,12 @@ public class CircularListImplTest {
     }
 
     @Test
-    void nextReturnsEmptyWhenListIsEmpty() {
-        assertTrue(circularList.next().isEmpty());
+    void nextCorrectlyCyclesTheList() {
+        circularList.add(0);
+        circularList.add(1);
+
+        circularList.next();
+        circularList.next();
+        assertEquals(Optional.of(0), circularList.next());
     }
 }
