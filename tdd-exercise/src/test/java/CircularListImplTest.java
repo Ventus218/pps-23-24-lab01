@@ -33,8 +33,10 @@ public class CircularListImplTest {
     @Test
     void resetWorks() {
         circularList.add(0);
+        circularList.add(1);
+        circularList.next();
         circularList.reset();
-        assertEquals(0, circularList.size());
+        assertEquals(0, circularList.next().get());
     }
 
     @Test
