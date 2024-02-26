@@ -23,4 +23,10 @@ public class CircularListImplTest {
     void isEmptyIsCorrect() {
         assertEquals(true, circularList.isEmpty());
     }
+
+    @Test
+    void addAddsAnItem() {
+        circularList.add(0);
+        assertEquals(1, circularList.size());
+    }
 }

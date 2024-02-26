@@ -4,15 +4,16 @@ import java.util.Optional;
 
 public class CircularListImpl implements CircularList {
 
+    private int size = 0;
+
     @Override
     public void add(int element) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'add'");
+        size++;
     }
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
