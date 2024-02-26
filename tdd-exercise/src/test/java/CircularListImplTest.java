@@ -29,4 +29,11 @@ public class CircularListImplTest {
         circularList.add(0);
         assertEquals(1, circularList.size());
     }
+
+    @Test
+    void reset() {
+        circularList.add(0);
+        circularList.reset();
+        assertEquals(0, circularList.size());
+    }
 }
