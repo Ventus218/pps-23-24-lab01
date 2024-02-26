@@ -7,7 +7,7 @@ public class SimpleBankAccountWithAtm implements BankAccount {
     /**
      * The amount of money that every operation will consume from the balance.
      */
-    public static final double fee = 1;
+    public static final double FEE = 1;
 
     public SimpleBankAccountWithAtm(final AccountHolder holder, final double balance) {
         this.bankAccount = new SimpleBankAccount(holder, balance);
@@ -25,16 +25,16 @@ public class SimpleBankAccountWithAtm implements BankAccount {
 
     @Override
     public void deposit(int userID, double amount) {
-        final double amountWithFee = amount - fee;
+        final double amountWithFee = amount - FEE;
         this.bankAccount.deposit(userID, amountWithFee);
     }
 
     @Override
     public void withdraw(int userID, double amount) {
-        final double amountWithFee = amount + fee;
+        final double amountWithFee = amount + FEE;
 
         if (amountWithFee > getBalance()) {
-            throw new IllegalArgumentException("The amount of a withdrawal ($" + amount + ") plus the fee ($" + fee
+            throw new IllegalArgumentException("The amount of a withdrawal ($" + amount + ") plus the fee ($" + FEE
                     + ") must be lower or a equals to the account balance ($" + getBalance() + ").");
         }
 

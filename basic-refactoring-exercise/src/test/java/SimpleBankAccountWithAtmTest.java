@@ -25,11 +25,16 @@ public class SimpleBankAccountWithAtmTest {
     }
 
     @Test
+    void testFee() {
+        assertEquals(1, SimpleBankAccountWithAtm.FEE);
+    }
+
+    @Test
     void testDeposit() {
         double depositAmount = 10;
         bankAccount.deposit(accountHolder.getId(), depositAmount);
 
-        double expectedBalance = depositAmount - SimpleBankAccountWithAtm.fee;
+        double expectedBalance = depositAmount - SimpleBankAccountWithAtm.FEE;
         assertEquals(expectedBalance, bankAccount.getBalance());
     }
 
@@ -47,7 +52,7 @@ public class SimpleBankAccountWithAtmTest {
         double withdrawalAmount = 10;
         bankAccount.withdraw(accountHolder.getId(), withdrawalAmount);
 
-        double withdrawalAmountWithFee = withdrawalAmount + SimpleBankAccountWithAtm.fee;
+        double withdrawalAmountWithFee = withdrawalAmount + SimpleBankAccountWithAtm.FEE;
         double expectedBalance = initialAmount - withdrawalAmountWithFee;
         assertEquals(expectedBalance, bankAccount.getBalance());
     }
