@@ -1,30 +1,38 @@
 package tdd;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class CircularListImpl implements CircularList {
 
-    private int size = 0;
+    private int currentIndex = -1;
+
+    private List<Integer> list = new ArrayList<>();
 
     @Override
     public void add(int element) {
-        size++;
+        list.add(element);
     }
 
     @Override
     public int size() {
-        return size;
+        return list.size();
     }
 
     @Override
     public boolean isEmpty() {
-        return size() == 0;
+        return list.isEmpty();
     }
 
     @Override
     public Optional<Integer> next() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'next'");
+        if (size() == 0) {
+            return Optional.empty();
+        }
+
+        incrementCurrentIndex();
+        return Optional.of(list.get(currentIndex));
     }
 
     @Override
@@ -35,7 +43,14 @@ public class CircularListImpl implements CircularList {
 
     @Override
     public void reset() {
-        size = 0;
+        list.clear();
     }
 
+    /**
+     * Increments the currentIndex field implementing circular logic based onto the
+     * list.
+     */
+    private void incrementCurrentIndex() {
+        currentIndex = (currentIndex + 1) % list.size();
+    }
 }
