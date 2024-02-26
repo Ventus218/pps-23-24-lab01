@@ -40,7 +40,7 @@ public class CircularListImplTest {
     }
 
     @Test
-    void nextActuallyReturnsNextItem() {
+    void nextReturnsCorrectItem() {
         circularList.add(0);
         var next = circularList.next();
         assertAll(
