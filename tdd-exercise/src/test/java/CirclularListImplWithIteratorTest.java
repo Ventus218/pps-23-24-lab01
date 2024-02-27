@@ -6,7 +6,8 @@ public class CirclularListImplWithIteratorTest {
 
     private CircularList circularList;
 
-    @BeforeEach void resetTestClassFields() {
+    @BeforeEach
+    void resetTestClassFields() {
         circularList = new CircularListImpl();
     }
 
