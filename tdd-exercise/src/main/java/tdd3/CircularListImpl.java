@@ -39,8 +39,13 @@ public class CircularListImpl implements CircularList {
 
     @Override
     public Optional<Integer> filteredNext(Function<Integer, Boolean> a) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'filteredNext'");
+        for (int i = 0; i < size(); i++) {
+            var item = next().get();
+            if (a.apply(item)) {
+                return Optional.of(item);
+            }
+        }
+        return Optional.empty();
     }
 
 }
