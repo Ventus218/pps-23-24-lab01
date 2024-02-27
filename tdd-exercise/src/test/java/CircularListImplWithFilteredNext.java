@@ -77,4 +77,13 @@ public class CircularListImplWithFilteredNext {
         circularList.previous();
         assertEquals(Optional.of(1), circularList.previous());
     }
+
+    @Test
+    void resetWorks() {
+        circularList.add(0);
+        circularList.add(1);
+        circularList.next();
+        circularList.reset();
+        assertEquals(0, circularList.next().get());
+    }
 }
