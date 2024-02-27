@@ -18,4 +18,9 @@ public class CirclularListImplWithIteratorTest {
     void sizeIsInitiallyZero() {
         assertEquals(0, circularList.size());
     }
+
+    @Test
+    void isEmptyIsCorrect() {
+        assertEquals(circularList.size() == 0, circularList.isEmpty());
+    }
 }
