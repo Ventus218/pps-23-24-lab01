@@ -4,16 +4,16 @@ import java.util.Iterator;
 
 public class CircularListImpl implements CircularList {
 
-    private int size = 0;
+    private final tdd.CircularListImpl circularList = new tdd.CircularListImpl();
 
     @Override
     public void add(int element) {
-        size += 1;
+        circularList.add(element);
     }
 
     @Override
     public int size() {
-        return size;
+        return circularList.size();
     }
 
     @Override
@@ -23,8 +23,24 @@ public class CircularListImpl implements CircularList {
 
     @Override
     public Iterator<Integer> forwardIterator() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'forwardIterator'");
+        return new Iterator<Integer>() {
+
+            @Override
+            public boolean hasNext() {
+                return !isEmpty();
+            }
+
+            @Override
+            public Integer next() {
+                var nextOptional = circularList.next();
+                if (nextOptional.isPresent()) {
+                    return nextOptional.get();
+                } else {
+                    throw new IllegalStateException(
+                            "Iterator has no more next items. If hasNext method returns false then the next method should not be called.");
+                }
+            }
+        };
     }
 
     @Override
