@@ -59,9 +59,9 @@ public interface CircularList {
     /**
      * Finds and returns the next element that satisfies the condition
      * 
-     * @param a the function that will be used as condition
+     * @param condition the function that will be used as condition
      * @return the next element of the list which satisfies the condition, or an
      *         empty optional if no element does.
      */
-    Optional<Integer> filteredNext(Function<Integer, Boolean> a);
+    Optional<Integer> filteredNext(Function<Integer, Boolean> condition);
 }

@@ -38,10 +38,10 @@ public class CircularListImpl implements CircularList {
     }
 
     @Override
-    public Optional<Integer> filteredNext(Function<Integer, Boolean> a) {
+    public Optional<Integer> filteredNext(Function<Integer, Boolean> condition) {
         for (int i = 0; i < size(); i++) {
             var item = next().get();
-            if (a.apply(item)) {
+            if (condition.apply(item)) {
                 return Optional.of(item);
             }
         }
