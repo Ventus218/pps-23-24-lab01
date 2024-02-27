@@ -16,4 +16,9 @@ public class CircularListImplWithFilteredNext {
     void sizeIsInitiallyZero() {
         assertEquals(0, circularList.size());
     }
+
+    @Test
+    void isEmptyWorksCorrectly() {
+        assertEquals(circularList.size() == 0, circularList.isEmpty());
+    }
 }
