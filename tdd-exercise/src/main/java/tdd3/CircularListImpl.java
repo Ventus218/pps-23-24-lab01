@@ -5,27 +5,26 @@ import java.util.function.Function;
 
 public class CircularListImpl implements CircularList {
 
-    private int size = 0;
+    private final tdd.CircularList circularList = new tdd.CircularListImpl();
 
     @Override
     public void add(int element) {
-        size += 1;
+        circularList.add(element);
     }
 
     @Override
     public int size() {
-        return size;
+        return circularList.size();
     }
 
     @Override
     public boolean isEmpty() {
-        return size() == 0;
+        return circularList.isEmpty();
     }
 
     @Override
     public Optional<Integer> next() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'next'");
+        return circularList.next();
     }
 
     @Override
@@ -36,8 +35,7 @@ public class CircularListImpl implements CircularList {
 
     @Override
     public void reset() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'reset'");
+
     }
 
     @Override

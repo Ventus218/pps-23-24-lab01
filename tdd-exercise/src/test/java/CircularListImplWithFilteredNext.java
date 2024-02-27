@@ -1,4 +1,6 @@
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
+
+import java.util.Optional;
 
 import org.junit.jupiter.api.*;
 
@@ -26,5 +28,29 @@ public class CircularListImplWithFilteredNext {
     void addIncrementsListSize() {
         circularList.add(0);
         assertEquals(1, circularList.size());
+    }
+
+    @Test
+    void nextReturnsEmptyWhenListIsEmpty() {
+        assertTrue(circularList.next().isEmpty());
+    }
+
+    @Test
+    void nextReturnsCorrectItem() {
+        circularList.add(0);
+        var next = circularList.next();
+        assertAll(
+                () -> assertTrue(next.isPresent()),
+                () -> assertEquals(0, next.get()));
+    }
+
+    @Test
+    void nextCorrectlyCyclesTheList() {
+        circularList.add(0);
+        circularList.add(1);
+
+        circularList.next();
+        circularList.next();
+        assertEquals(Optional.of(0), circularList.next());
     }
 }
