@@ -73,4 +73,13 @@ public class CirclularListImplWithIteratorTest {
         backwardIterator.next();
         assertEquals(1, backwardIterator.next());
     }
+
+    @Test
+    void forwardIteratorAndBackwardIteratorCorrectlyWorkTogether() {
+        circularList.add(0);
+        circularList.add(1);
+        var forwardIterator = circularList.forwardIterator();
+        var backwardIterator = circularList.backwardIterator();
+        assertAll(() -> assertEquals(0, forwardIterator.next()), () -> assertEquals(0, backwardIterator.next()));
+    }
 }
