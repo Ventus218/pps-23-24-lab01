@@ -21,4 +21,10 @@ public class CircularListImplWithFilteredNext {
     void isEmptyWorksCorrectly() {
         assertEquals(circularList.size() == 0, circularList.isEmpty());
     }
+
+    @Test
+    void addIncrementsListSize() {
+        circularList.add(0);
+        assertEquals(1, circularList.size());
+    }
 }
