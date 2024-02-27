@@ -29,8 +29,7 @@ public class CircularListImpl implements CircularList {
 
     @Override
     public Optional<Integer> previous() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'previous'");
+        return circularList.previous();
     }
 
     @Override
