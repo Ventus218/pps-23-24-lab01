@@ -2,7 +2,7 @@ package tdd2;
 
 import java.util.Iterator;
 
-public class CircularListImpl implements CircularList  {
+public class CircularListImpl implements CircularList {
 
     @Override
     public void add(int element) {
