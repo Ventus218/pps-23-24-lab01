@@ -41,8 +41,11 @@ public class CircularListImpl implements CircularList {
 
     @Override
     public Optional<Integer> previous() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'previous'");
+        if (size() == 0) {
+            return Optional.empty();
+        }
+        decrementCurrentIndex();
+        return Optional.of(list.get(currentIndex));
     }
 
     @Override
@@ -56,5 +59,13 @@ public class CircularListImpl implements CircularList {
      */
     private void incrementCurrentIndex() {
         currentIndex = (currentIndex + 1) % list.size();
+    }
+
+    /**
+     * Decrements the currentIndex field implementing circular logic based onto the
+     * list.
+     */
+    private void decrementCurrentIndex() {
+        currentIndex = Math.abs((currentIndex - 1) % list.size());
     }
 }

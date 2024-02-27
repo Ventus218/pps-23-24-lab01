@@ -64,4 +64,28 @@ public class CircularListImplTest {
         circularList.next();
         assertEquals(Optional.of(0), circularList.next());
     }
+
+    @Test
+    void previousReturnsEmptyWhenListIsEmpty() {
+        assertTrue(circularList.previous().isEmpty());
+    }
+
+    @Test
+    void previousReturnsCorrectItem() {
+        circularList.add(0);
+        var previous = circularList.previous();
+        assertAll(
+                () -> assertTrue(previous.isPresent()),
+                () -> assertEquals(0, previous.get()));
+    }
+
+    @Test
+    void previousCorrectlyCyclesTheList() {
+        circularList.add(0);
+        circularList.add(1);
+
+        circularList.previous();
+        circularList.previous();
+        assertEquals(Optional.of(0), circularList.previous());
+    }
 }
