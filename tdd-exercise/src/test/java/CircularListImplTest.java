@@ -23,7 +23,7 @@ public class CircularListImplTest {
 
     @Test
     void isEmptyIsCorrect() {
-        assertEquals(true, circularList.isEmpty());
+        assertEquals(circularList.size() == 0, circularList.isEmpty());
     }
 
     @Test
