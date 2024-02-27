@@ -13,8 +13,7 @@ public class CircularListImpl implements CircularList {
 
     @Override
     public int size() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'size'");
+        return 0;
     }
 
     @Override
