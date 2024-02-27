@@ -35,8 +35,9 @@ public class CircularListImpl implements CircularList {
             return Optional.empty();
         }
 
+        var result =  Optional.of(list.get(currentIndex));
         incrementCurrentIndex();
-        return Optional.of(list.get(currentIndex));
+        return result;
     }
 
     @Override
@@ -50,7 +51,7 @@ public class CircularListImpl implements CircularList {
 
     @Override
     public void reset() {
-        currentIndex = -1;
+        currentIndex = 0;
     }
 
     /**

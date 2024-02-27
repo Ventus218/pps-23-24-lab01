@@ -86,6 +86,6 @@ public class CircularListImplTest {
 
         circularList.previous();
         circularList.previous();
-        assertEquals(Optional.of(0), circularList.previous());
+        assertEquals(Optional.of(1), circularList.previous());
     }
 }
