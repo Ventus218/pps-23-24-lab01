@@ -4,15 +4,16 @@ import java.util.Iterator;
 
 public class CircularListImpl implements CircularList {
 
+    private int size = 0;
+
     @Override
     public void add(int element) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'add'");
+        size += 1;
     }
 
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
