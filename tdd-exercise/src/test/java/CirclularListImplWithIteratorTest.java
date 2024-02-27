@@ -41,4 +41,14 @@ public class CirclularListImplWithIteratorTest {
         var forwardIterator = circularList.forwardIterator();
         assertAll(() -> assertTrue(forwardIterator.hasNext()), () -> assertEquals(0, forwardIterator.next()));
     }
+
+    @Test
+    void forwardIteratorCorrectlyCyclesTheList() {
+        circularList.add(0);
+        circularList.add(1);
+        var forwardIterator = circularList.forwardIterator();
+        forwardIterator.next();
+        forwardIterator.next();
+        assertEquals(0, forwardIterator.next());
+    }
 }
