@@ -31,7 +31,7 @@ public class CircularListImpl implements CircularList {
 
     @Override
     public Optional<Integer> next() {
-        if (size() == 0) {
+        if (isEmpty()) {
             return Optional.empty();
         }
 
@@ -42,9 +42,10 @@ public class CircularListImpl implements CircularList {
 
     @Override
     public Optional<Integer> previous() {
-        if (size() == 0) {
+        if (isEmpty()) {
             return Optional.empty();
         }
+
         decrementCurrentIndex();
         return Optional.of(list.get(currentIndex));
     }
