@@ -32,9 +32,8 @@ public class CircularListImpl implements CircularList {
 
             @Override
             public Integer next() {
-                var nextOptional = circularList.next();
-                if (nextOptional.isPresent()) {
-                    return nextOptional.get();
+                if (hasNext()) {
+                    return circularList.next().get();
                 } else {
                     throw new IllegalStateException(
                             "Iterator has no more next items. If hasNext method returns false then the next method should not be called.");
@@ -54,9 +53,8 @@ public class CircularListImpl implements CircularList {
 
             @Override
             public Integer next() {
-                var previousOptional = circularList.previous();
-                if (previousOptional.isPresent()) {
-                    return previousOptional.get();
+                if (hasNext()) {
+                    return circularList.previous().get();
                 } else {
                     throw new IllegalStateException(
                             "Iterator has no more next items. If hasNext method returns false then the next method should not be called.");
