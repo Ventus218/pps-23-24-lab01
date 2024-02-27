@@ -51,4 +51,16 @@ public class CirclularListImplWithIteratorTest {
         forwardIterator.next();
         assertEquals(0, forwardIterator.next());
     }
+
+    @Test
+    void backwardIteratorHasNextIsFalseWhenListIsEmpty() {
+        assertFalse(circularList.backwardIterator().hasNext());
+    }
+
+    @Test
+    void backwardIteratorCorrectlyIteratesToNextItemInList() {
+        circularList.add(0);
+        var backwardIterator = circularList.backwardIterator();
+        assertAll(() -> assertTrue(backwardIterator.hasNext()), () -> assertEquals(0, backwardIterator.next()));
+    }
 }

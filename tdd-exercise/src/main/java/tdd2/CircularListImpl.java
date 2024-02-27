@@ -45,7 +45,23 @@ public class CircularListImpl implements CircularList {
 
     @Override
     public Iterator<Integer> backwardIterator() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'backwardIterator'");
+        return new Iterator<Integer>() {
+
+            @Override
+            public boolean hasNext() {
+                return !isEmpty();
+            }
+
+            @Override
+            public Integer next() {
+                var previousOptional = circularList.previous();
+                if (previousOptional.isPresent()) {
+                    return previousOptional.get();
+                } else {
+                    throw new IllegalStateException(
+                            "Iterator has no more next items. If hasNext method returns false then the next method should not be called.");
+                }
+            }
+        };
     }
 }
